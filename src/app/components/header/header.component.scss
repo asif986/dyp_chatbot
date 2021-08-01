@@ -1,0 +1,31 @@
+.flex-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ion-avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 8px;
+}
+
+.header-font {
+    font-size: 21px;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+.brandname {
+    color: white;
+}
+
+.point {
+    width: 10px;
+    height: 10px;
+    background-color: #f7757f;
+    right: 2%;
+    top: 2%;
+    position: absolute;
+    border-radius: 25px;
+}

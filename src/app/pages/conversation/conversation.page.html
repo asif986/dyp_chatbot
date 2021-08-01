@@ -1,0 +1,92 @@
+<!-- <ion-header>
+    <ion-title class="top_header ion-text-center">Academic year 2020-2021</ion-title>
+    <div class="secondtoolbar">
+        <ion-title class="ion-text-center" class="CollageNameBackground">Dr.D.Y.Patil colleage of eng</ion-title>
+    </div>
+
+    <ion-toolbar color="primary" class="ion-text-center">
+
+        <ion-title>DYPchatBot</ion-title>
+
+        <ion-buttons slot="secondary">
+
+            <ion-button (click)="logout()">
+                <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header> -->
+<app-header headername="ChatBot"></app-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row *ngFor="let message of messages">
+
+            <img *ngIf="message.user==='bot'" class="Botlogo" src="assets/icon/botimg.png">
+
+            <ion-col size="7" *ngIf="message.user==='bot'" class="message Bot_msg_class">
+
+
+                <!-- <b>
+    s                                                                                                                                                                                                                                   {{message.user}}
+        </b> -->
+                <!-- <br> -->
+                <span>
+                    {{message.msg}}
+                </span>
+                <div class=" txt-color ion-text-right">
+                    <br> {{message.createAt | date:'shortTime'}}
+                </div>
+            </ion-col>
+
+            <ion-col offset="4" size="7" *ngIf="message.user!=='bot'" class="message User_msg_class">
+                <b>
+                    <!-- {{message.user}} -->
+                    You
+                </b>
+                <br>
+                <span>
+                    {{message.msg}}
+                </span>
+                <div class="time" class="ion-text-right">
+                    <br> {{message.createAt | date:'shortTime'}}
+
+                </div>
+            </ion-col>
+
+        </ion-row>
+
+    </ion-grid>
+    <ion-row class="ion-text-center" *ngIf="butttons.length>1">
+        <ion-col class="padding-and-marding" [size]="6" *ngFor="let item of butttons;let i = index">
+            <!-- <ion-chip (click)='sendmsg(item.option)'>
+                <ion-label [color]="item.link==1?'tertiary':'dark'">{{item.option}}</ion-label>
+            </ion-chip> -->
+            <ion-button (click)="sendmsg(item.option)" expand="full">
+                <ion-icon *ngIf="item.icon" slot="end" [name]="item.icon"></ion-icon>
+                {{item.btnnm}}
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="light ">
+        <ion-row class="ion-align-items-center ">
+
+            <ion-col size="9 ">
+                <textarea autosize maxRows="4 " [(ngModel)]="newmsg " class="message-input "></textarea>
+            </ion-col>
+
+            <ion-col size="2 ">
+                <ion-button (click)="sendmsg()" expand="block " color="primary " fill="clear " class="msg-btn " [disabled]='newmsg===" "'>
+                    <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+                </ion-button>
+            </ion-col>
+
+        </ion-row>
+
+
+
+    </ion-toolbar>
+</ion-footer>

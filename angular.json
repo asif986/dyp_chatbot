@@ -37,7 +37,12 @@
               },
               {
                 "input": "src/global.scss"
+                 
+              },
+              {
+                "input":"node_modules/@nebular/theme/styles/prebuilt/default.css"
               }
+
             ],
             "scripts": []
           },

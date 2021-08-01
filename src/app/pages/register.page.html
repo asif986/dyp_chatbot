@@ -1,0 +1,109 @@
+<ion-content>
+
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <hr>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size-md="10" offset-md="1" size-sm="10" offset-sm="1" size-lg="10" size-xl="10" offset-xl="1" offset-lg="1">
+
+                <ion-card>
+                    <ion-card-header color="primary">
+
+                        <ion-card-title class="ion-text-center">Create your account!</ion-card-title>
+                    </ion-card-header>
+
+                    <form #form="ngForm" (ngSubmit)="register(form)">
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size-md="6" size-lg="5" size-xs="12">
+
+                                    <div>
+                                        <ion-item>
+                                            <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="name" required></ion-input>
+                                        </ion-item>
+                                        <!-- <ion-item>
+                <ion-label>Choose your role</ion-label>
+                <ion-select multiple="false" cancelText="cancel" okText="Okay!">
+                  <ion-select-option value="Student">Student</ion-select-option>
+                  <ion-select-option value="Teacher">Teacher</ion-select-option>
+               
+                </ion-select>
+              </ion-item> -->
+                                        <ion-item>
+                                            <ion-input name="email" email placeholder="your@email.com" [(ngModel)]="email" required></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                            <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="password" required></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                            <ion-input name="confirm" type="password" placeholder="Password again" [(ngModel)]="confirm" required></ion-input>
+                                        </ion-item>
+                                        <ion-col class="ion-grid__paddingZero" size="4" offset="4">
+                                            <ion-item>
+                                                <ion-thumbnail>
+                                                    <ion-img [src]="placeholderimg"></ion-img>
+                                                </ion-thumbnail>
+                                            </ion-item>
+                                        </ion-col>
+                                        <ion-button (click)="takeSnap()" class="padding" color="primary">
+                                            <ion-icon name="camera-outline"></ion-icon>
+                                        </ion-button>
+                                    </div>
+                                    <div>
+                                        <ion-button size="large" type="submit" color="secondary" [disabled]="form.invalid||password!=confirm" expand="block">Register</ion-button>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </form>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>

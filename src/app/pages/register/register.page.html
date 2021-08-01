@@ -1,0 +1,116 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-title>Register</ion-title>
+        <ion-buttons slot="start">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="login"></ion-back-button>
+            </ion-buttons>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="align-content">
+        <form #form="ngForm">
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <div class="header-align-center">
+                            <ion-img style="width:100%;    max-width: 75%;" class="dypimg" src="assets/icon/DYPCET_Logo.jpg"></ion-img>
+
+                        </div>
+                    </ion-col>
+                    <!-- <ion-col size="6"></ion-col> -->
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+                            <div class="padding-buttom">
+
+                                <ion-item>
+                                    <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="name" required></ion-input>
+                                </ion-item>
+                            </div>
+                            <!-- <div class="padding-buttom">
+
+                                <ion-item>
+                                    <ion-label>Choose your role</ion-label>
+                                    <ion-select multiple="false" cancelText="cancel" okText="Okay!">
+                                        <ion-select-option value="Student">Student</ion-select-option>
+                                        <ion-select-option value="Teacher">Teacher</ion-select-option>
+
+                                    </ion-select>
+                                </ion-item>
+                            </div> -->
+                            <div class="padding-buttom">
+
+                                <ion-item>
+
+                                    <ion-input autocorrect="on" [(ngModel)]="email" name="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Username" required="true"></ion-input>
+                                    <ion-icon name="person" slot="start" class="ion-align-self-center"></ion-icon>
+                                    <!-- <ion-icon name="lock-closed"></ion-icon> -->
+                                    <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
+                                </ion-item>
+                            </div>
+
+                            <div class="padding-buttom">
+
+
+                                <ion-item>
+                                    <ion-input autocorrect="on" name="password" #pass [(ngModel)]="password" autofocus="on" type="password" clearInput="true" clearOnEdit="true" inputmode="password" placeholder="Password" required="true"></ion-input>
+                                    <ion-icon name="lock-closed" slot="start" class="ion-align-self-center"></ion-icon>
+                                    <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
+                                </ion-item>
+
+                            </div>
+                            <div class="padding-buttom">
+
+                                <ion-item>
+                                    <ion-input autocorrect="on" name="confirm" #cpassword [(ngModel)]="confirm" autofocus="on" type="password" clearInput="true" clearOnEdit="true" inputmode="password" placeholder="Password again" required="true"></ion-input>
+                                    <ion-icon name="lock-closed" slot="start" class="ion-align-self-center"></ion-icon>
+                                    <!-- <ion-input name="confirm" type="password" placeholder="Password again" [(ngModel)]="confirm" required></ion-input> -->
+                                </ion-item>
+                            </div>
+                        </ion-list>
+
+
+
+
+                    </ion-col>
+                </ion-row>
+                <div class="profile-div">
+
+                    <ion-thumbnail>
+                        <ion-img [src]="placeholderimg"></ion-img>
+                    </ion-thumbnail>
+                    <ion-button (click)="takeSnap()" class="padding" color="primary">
+                        <ion-icon name="camera-outline"></ion-icon>
+                    </ion-button>
+                </div>
+
+
+
+                <ion-row>
+                    <ion-col>
+                        <ion-button (click)="register(form)" [disabled]="form.invalid|| password !== confirm" color="dark" expand="block" shape="round">
+                            Register new USer
+                        </ion-button>
+                        <!-- <div class="forget-txt-align">
+
+                          <ion-text class="forget-txt-align" color="dark" class="ion-text-center">
+                              <h5>Forgot Password</h5>
+                          </ion-text>
+                      </div> -->
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </form>
+    </div>
+
+
+    <!-- <app-sendotp *ngIf="changestate" (varify) ="varifyotp($event)"></app-sendotp> -->
+    <!-- <app-varifyotp    *ngIf="!changestate"></app-varifyotp> -->
+</ion-content>

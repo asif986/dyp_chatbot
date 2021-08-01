@@ -1,0 +1,76 @@
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+}
+
+.ion-text-right {
+    float: right;
+    font-size: small;
+    color: #dfdfdf;
+}
+
+.User_msg_class {
+    background-color: #9E9E9E;
+    color: black;
+}
+
+.Bot_msg_class {
+    background-color: #cccccc;
+    color: black;
+}
+
+.padding-and-marding {
+    padding: 0px;
+    margin: 0px;
+}
+
+.message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background-color: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.txt-color {
+    color: black
+}
+
+.msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+
+.Botlogo {
+    width: 41px;
+    height: 43px;
+}
+
+textarea {
+    color: var(--ion-color-primary) !important;
+}
+
+.secondtoolbar {
+    background-color: var(--ion-color-primary);
+    height: 21px;
+    display: flex;
+    padding-left: 29px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+}
+
+.top_header {
+    background-color: var(--ion-color-top-header);
+    color: white;
+}
+
+.toolbar-background {
+    background-color: var(--ion-color-primary) !important;
+    color: #D7CCC8;
+}

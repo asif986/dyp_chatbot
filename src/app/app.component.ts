@@ -10,12 +10,24 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  reUPages=[];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    this.reUPages = [
+      {
+        name: 'Main Menu',
+        path: '/menu'
+      },
+  
+      {
+        name: 'Logout',
+        path: 'login'
+      },
+    ]
   }
 
   initializeApp() {

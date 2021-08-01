@@ -1,0 +1,72 @@
+<!-- <ion-header>
+  <ion-toolbar>
+
+    <ion-title>Login</ion-title> 
+       <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+    <div class="align-content">
+        <form #form="ngForm">
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <div class="header-align-center">
+                            <ion-img style="width:100%;    max-width: 75%;" class="dypimg" src="assets/icon/DYPCET_Logo.jpg"></ion-img>
+
+                        </div>
+                    </ion-col>
+                    <!-- <ion-col size="6"></ion-col> -->
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+                            <ion-item>
+
+                                <ion-input autocorrect="on" [(ngModel)]="email" name="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Username" required="true"></ion-input>
+                                <ion-icon name="person" slot="start" class="ion-align-self-center"></ion-icon>
+                                <!-- <ion-icon name="lock-closed"></ion-icon> -->
+                                <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+                            <ion-item>
+
+                                <ion-input autocorrect="on" name="password" [(ngModel)]="password" autofocus="on" type="password" clearInput="true" clearOnEdit="true" inputmode="password" placeholder="Password" required="true"></ion-input>
+                                <ion-icon name="lock-closed" slot="start" class="ion-align-self-center"></ion-icon>
+                                <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col>
+                        <ion-button (click)="login()" [disabled]="form.invalid" color="dark" expand="block" shape="round">
+                            log in
+                        </ion-button>
+                        <div class="forget-txt-align">
+
+                            <ion-text (click)="gotoRegister()" class="forget-txt-align" color="dark" class="ion-text-center">
+                                <h5>Register new User</h5>
+                            </ion-text>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </form>
+    </div>
+
+
+    <!-- <app-sendotp *ngIf="changestate" (varify) ="varifyotp($event)"></app-sendotp> -->
+    <!-- <app-varifyotp    *ngIf="!changestate"></app-varifyotp> -->
+</ion-content>
