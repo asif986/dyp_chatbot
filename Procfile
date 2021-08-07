@@ -1,1 +1,1 @@
-web : node nodeproject/app.js
+web : ionic serve
