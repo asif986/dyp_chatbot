@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "chatbot",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

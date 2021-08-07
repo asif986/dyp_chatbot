@@ -2,6 +2,7 @@
   "name": "chatbot",
   "version": "0.0.1",
   "author": "Ionic Framework",
+  "postinstall": "jetifier",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -22,6 +23,7 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
+    "@capacitor/android": "3.1.2",
     "@capacitor/app": "1.0.2",
     "@capacitor/core": "3.1.1",
     "@capacitor/haptics": "1.0.2",
@@ -47,6 +49,7 @@
     "firebase": "^8.2.1",
     "google-oauth-jwt": "^0.2.0",
     "googleapis": "^67.0.0",
+    "jetifier": "^2.0.0",
     "ngx-autosize": "^1.8.4",
     "rxjs": "~6.5.5",
     "sonicx": "^1.0.0-beta.1",

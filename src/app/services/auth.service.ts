@@ -14,7 +14,7 @@ export class AuthService {
   constructor(public navctrl:NavController, public  afAuth:  AngularFireAuth) 
   {
     this.afAuth.authState.subscribe(user => {
-      console.log(user)
+      console.log(user.uid)
       if (user){
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
@@ -47,8 +47,6 @@ var result =   await this.afAuth.signOut();
   localStorage.removeItem('user');
   this.navctrl.navigateRoot(['login']);
   return result;
-
-
 }
 get isLoggedIn(): boolean {
   const  user  =  JSON.parse(localStorage.getItem('user'));

@@ -62,7 +62,7 @@
             <!-- <ion-chip (click)='sendmsg(item.option)'>
                 <ion-label [color]="item.link==1?'tertiary':'dark'">{{item.option}}</ion-label>
             </ion-chip> -->
-            <ion-button (click)="sendmsg(item.option)" expand="full">
+            <ion-button (click)="item.link===0?sendmsg(item.btnnm):inAppBrowser(item.linkurl)" expand="full">
                 <ion-icon *ngIf="item.icon" slot="end" [name]="item.icon"></ion-icon>
                 {{item.btnnm}}
             </ion-button>

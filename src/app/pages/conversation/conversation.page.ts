@@ -1,10 +1,11 @@
-import { AlertController, IonContent, LoadingController } from "@ionic/angular";
+import { AlertController, IonContent, LoadingController, Platform } from "@ionic/angular";
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { AuthService } from "src/app/services/auth.service";
-import { HttpClient } from "@angular/common/http";
 import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
 import { environment } from "src/environments/environment";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-conversation",
@@ -19,6 +20,7 @@ export class ConversationPage implements OnInit {
   localhostIP = environment.localhostIP;
   constructor(
     private iab: InAppBrowser,
+    private platform:Platform,
     public authservice: AuthService,
     public httpclient: HttpClient,
     public loadingctr: LoadingController,
@@ -27,30 +29,43 @@ export class ConversationPage implements OnInit {
 
   ngOnInit() {
     console.log(this.messages);
-    let body = {
-      msg: "Hi"
-    };
+   
+    // let body = {
+    //   msg: "Hi"
+    // };
     //running code for wishesh message--start--
     //*note first comment above body variable
-//    let today = new Date();
-  //  let curHr = today.getHours();
-    //let body ;
-    // if (curHr < 12) {
-    //   body = {
-    //     msg: "good morning",
-    //   };
-    //   console.log("good morning");
-    // } else if (curHr < 18) {
-    //   console.log("good afternoon");
-    //   body = {
-    //     msg: "good afternoon",
-    //   };
-    // } else {
-    //   console.log("good evening");
-    //   body = {
-    //     msg: "good evening",
-    //   };
-    // }
+    let today = new Date();
+    let curHr = today.getHours();
+    let body;
+    console.log(curHr);
+    let day = new Date();
+    let hr = day.getHours();
+    if (hr >= 0 && hr < 12) {
+      console.log("Good Morning!");
+    } else if (hr == 12) {
+      console.log("Good Noon!");
+    } else if (hr >= 12 && hr <= 17) {
+      console.log("Good Afternoon!");
+    } else {
+      console.log("Good Evening!");
+    }
+    if (curHr < 12) {
+      body = {
+        msg: "good morning",
+      };
+      console.log("good morning");
+    } else if (curHr < 17) {
+      console.log("good afternoon");
+      body = {
+        msg: "good afternoon",
+      };
+    } else {
+      console.log("good evening");
+      body = {
+        msg: "good evening",
+      };
+    }
     //--end--
     //   console.log(body);
     let currentDate = new Date();
@@ -103,18 +118,29 @@ export class ConversationPage implements OnInit {
   }
   apicall(msg) {
     console.log(msg);
-    this.httpclient.post(this.localhostIP, msg).subscribe(
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+
+      //   'Authorization': `Bearer 1|j6mNjEOrkEQVQtXv6sCtJYASMkEkJIyPnXZbSKKN`
+    });
+
+    const options = {
+      headers: headers,
+      observe: "response" as "body",
+    };
+    this.httpclient.post<any>(this.localhostIP, msg, options).pipe(map(res=>res.body)).subscribe(
       (data: any) => {
-        let mainstring;
+        console.log(data);
+        let mainstring;   
         console.log(data.res.includes("*"));
         if (data.res.includes("*")) {
-        //  console.log();
+          //  console.log();
 
           mainstring = data.res.substring(0, data.res.indexOf("*") - 1);
         } else {
           mainstring = data.res;
         }
-       // console.log(mainstring);
+        // console.log(mainstring);
 
         //substring created from * to bottom of msg + 2 because * +' '+' ' means empty space two times
         let options = data.res.substring(data.res.indexOf("*") + 2);
@@ -144,13 +170,33 @@ export class ConversationPage implements OnInit {
     );
   }
 
-  inAppBrowser()
-  {
-    const browser = this.iab.create('https://ionicframework.com/');
-    browser.on('loadstop').subscribe(event => {
-      browser.insertCSS({ code: "body{color: red;" });
-   });
-   
-   browser.close();
+  inAppBrowser(link) {
+  let target = "";
+  this.platform.ready().then(() => {
+    if (this.platform.is('android')) {
+         console.log('android');
+         target = "_blank";
+    } else if (this.platform.is('ios')) {
+         console.log('ios');
+         target = "_blank";
+    } else {
+         //fallback to browser APIs or
+         target = "_system";
+         console.log('The platform is not supported');
+           }
+    })
+
+  console.log(link);
+    const browser = this.iab.create(link);
+    browser.on("loadstop").subscribe((event) => {
+      console.log(event)
+    });
+    browser.on("exit").subscribe((event) => {
+    let  body = {
+        msg: "thank you",
+      };
+      this.apicall(body);
+    });
+    //browser.close();
   }
 }

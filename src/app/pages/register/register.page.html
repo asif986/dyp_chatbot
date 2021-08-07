@@ -85,7 +85,9 @@
                     <ion-thumbnail>
                         <ion-img [src]="placeholderimg"></ion-img>
                     </ion-thumbnail>
-                    <ion-button (click)="takeSnap()" class="padding" color="primary">
+                    <input type="file" *ngIf="checkBrowser" (change)="takeSnap($event)">
+
+                    <ion-button (click)="takeSnap()" *ngIf="!checkBrowser" class="padding" color="primary">
                         <ion-icon name="camera-outline"></ion-icon>
                     </ion-button>
                 </div>

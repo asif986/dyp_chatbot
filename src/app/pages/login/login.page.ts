@@ -37,8 +37,8 @@ const alert = await this.alterctrl.create({message:"WelCome To DYPChatBot!!!",bu
     //const tost = await this.tostctrl.create({message})
     await this.authservice.login(this.email,this.password).then((res:any)=>
     {
-
-      console.log(res);
+//profileLink
+      console.log(res.uid);
       setTimeout(() => {
         loading.dismiss()
         alert.present();
