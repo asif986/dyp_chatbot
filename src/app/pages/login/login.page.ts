@@ -20,8 +20,8 @@ export class LoginPage implements OnInit {
     public authservice:AuthService,
     public tostctrl:ToastController,
     public navctrl:NavController) { }
-  email="harshadtibile@gmail.com";
-  password="123456";
+  email="";
+  password="";
   ngOnInit() {
   }
   gotoRegister()

@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: "228684971887",
     appId: "1:228684971887:web:f9c7478ddaa5cf8f71f29a",
     measurementId: "G-BVP59NMY7L"
-  }
+  },
+  localhostIP:"https://salty-depths-03445.herokuapp.com/"
 };

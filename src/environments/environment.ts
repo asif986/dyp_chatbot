@@ -16,7 +16,7 @@ export const environment = {
   dialogflow: {
     angularBot: 'AIzaSyB5Pr3VpKDC255Wgk6OBZEbd0qU8nRCNJI'
   },
-  localhostIP:"http://20c0d792cb6d.ngrok.io"
+  localhostIP:"https://salty-depths-03445.herokuapp.com/"
   //http://4697bbed4253.ngrok.io
 };
 // export const environment = {
