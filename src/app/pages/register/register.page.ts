@@ -17,6 +17,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from "src/app/services/auth.service";
 import { NgForm } from "@angular/forms";
 import { environment } from "../../../environments/environment";
+import { Capacitor } from "@capacitor/core";
 
 //import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient'
 
@@ -58,37 +59,46 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     // this.client.textRequest("text").then(res=>{console.log(res)})
-    this.platform.ready().then((res) => {
-      if (this.platform.is("android") ) {
-        console.log(this.platform.is("android"))
-        //   console.log('android');
-        //  target = "_blank";
-        //  target = "_blank";
-      } else if(this.platform.is("ios"))
-      {
 
-        console.log(this.platform.is("ios"))
-      }else {
-        this.checkBrowser = true; //fallback to browser APIs or
-        //  target = "_system";
-        console.log("The platform is not supported");
-      }
-    });
+    if (Capacitor.isNativePlatform()) {
+      // do something
+    } else {
+      console.log("The platform is not supported");
+      this.checkBrowser = true; //fallback to browser APIs or
+    }
+    // console.log(res);
+    // if (this.platform.is("android")) {
+    //   console.log(this.platform.is("android"));
+    //   //   console.log('android');
+    //   //  target = "_blank";
+    //   //  target = "_blank";
+    // } else if (this.platform.is("ios")) {
+    //   console.log(this.platform.is("ios"));
+    // } else {
+    //   console.log("The platform is not supported");
+    //   this.checkBrowser = true; //fallback to browser APIs or
+    //   //  target = "_system";
+    // }
   }
   async register(form: NgForm) {
     const loading = await this.loadingctr.create({
       message: "Please wait..",
       duration: 2000,
     });
+
     loading.present();
     const alert = await this.alterctrl.create({
       message: "WelCome To DYPChatBot!!!",
       buttons: [{ text: "Ok", role: "Ok" }],
     });
-    console.log(form.form.value);
+
     if (form.form.value !== "") {
+      console.log(form.form.value);
+
       this.authservice.register(this.email, this.password).then(
         (res) => {
+          console.log(res);
+
           let uuid1 = res;
           console.log(res.user.uid);
           this.afstore
@@ -110,33 +120,36 @@ export class RegisterPage implements OnInit {
               // this.navCtrl.navigateRoot(['home']);
               console.log(res);
             });
-          this.task.then(async (res) => {
-            //console.log(res)
-            await this.ref.getDownloadURL().subscribe((data) => {
-              this.afstore
-                .collection("students")
-                .doc(uuid1.user.uid)
-                .set({
-                  user: this.name,
-                  // branchname:this.branch,
-                  // semester:this.selectedsemestes,
-                  // subjects:this.selectedsubjects,
-                  profileLink: data,
-                  //authid:this.authid
-                })
-                .then((res) => {
-                  //   let nm=this.name;
-                  //   this.helper.hideLoader();
-                  // this.helper.presentAlert("Success", "Information Successfully Saved.");
-                  // this.authService.accountDetails({nm,data});
-                  // this.navCtrl.navigateRoot(['home']);
-                  console.log(res);
-                });
+          if (Capacitor.isNativePlatform()) {
+            this.task.then(async (res) => {
+              //console.log(res)
+              await this.ref.getDownloadURL().subscribe((data) => {
+                this.afstore
+                  .collection("students")
+                  .doc(uuid1.user.uid)
+                  .set({
+                    user: this.name,
+                    // branchname:this.branch,
+                    // semester:this.selectedsemestes,
+                    // subjects:this.selectedsubjects,
+                    profileLink: data,
+                    //authid:this.authid
+                  })
+                  .then((res) => {
+                    //   let nm=this.name;
+                    //   this.helper.hideLoader();
+                    // this.helper.presentAlert("Success", "Information Successfully Saved.");
+                    // this.authService.accountDetails({nm,data});
+                    // this.navCtrl.navigateRoot(['home']);
+                    console.log(res);
+                  });
 
-              //     console.log(data)
-              //this.profileLink =  data;
+                //     console.log(data)
+                //this.profileLink =  data;
+              });
             });
-          });
+          }
+
           console.log(res);
           setTimeout(() => {
             loading.dismiss();
@@ -144,6 +157,7 @@ export class RegisterPage implements OnInit {
           }, 2000);
         },
         async (error) => {
+          console.log(error);
           const toast = await this.tostctrl.create({
             message: error.message,
             duration: 2000,
@@ -152,7 +166,7 @@ export class RegisterPage implements OnInit {
           console.log(error.message);
         }
       );
-      console.log(this.email);
+      // console.log(this.email);
     } else {
       const toast = await this.tostctrl.create({
         message: "Please Enter details",
@@ -175,7 +189,7 @@ export class RegisterPage implements OnInit {
             this.ref = this.afStorage.ref(id);
             this.placeholderimg = base64Image;
             this.task = this.ref.putString(base64Image, "data_url");
-
+            
             //console.log(this.profileLink);
             //console.log(this.placeholderimg)
           },
@@ -192,6 +206,6 @@ export class RegisterPage implements OnInit {
       }
     });
 
-    console.log("This is profilelink");
+    // console.log("This is profilelink");
   }
 }

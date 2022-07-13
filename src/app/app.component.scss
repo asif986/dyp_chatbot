@@ -1,1 +1,6 @@
-@import '../theme/fonts';
+@import "../theme/fonts";
+
+.toolbar-background {
+  --background: var(--ion-color-primary) !important;
+  color: white;
+}

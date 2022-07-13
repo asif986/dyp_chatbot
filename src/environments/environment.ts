@@ -4,19 +4,19 @@
 
 export const environment = {
   production: false,
-   firebaseConfig : {
-    apiKey: "AIzaSyAe3sQ-06-iLdmUqmVk1vH2--emWt_Uauo",
-    authDomain: "college-chatbot-bfek.firebaseapp.com",
-    projectId: "college-chatbot-bfek",
-    storageBucket: "college-chatbot-bfek.appspot.com",
-    messagingSenderId: "228684971887",
-    appId: "1:228684971887:web:f9c7478ddaa5cf8f71f29a",
-    measurementId: "G-BVP59NMY7L"
+  firebaseConfig: {
+    apiKey: "AIzaSyB5Pr3VpKDC255Wgk6OBZEbd0qU8nRCNJI",
+    authDomain: "dypchatbot.firebaseapp.com",
+    projectId: "dypchatbot",
+    storageBucket: "dypchatbot.appspot.com",
+    messagingSenderId: "555398659786",
+    appId: "1:555398659786:web:efadf4240ec167949dfe33",
+    measurementId: "G-G60327M1HG",
   },
   dialogflow: {
-    angularBot: 'AIzaSyB5Pr3VpKDC255Wgk6OBZEbd0qU8nRCNJI'
+    angularBot: "AIzaSyB5Pr3VpKDC255Wgk6OBZEbd0qU8nRCNJI",
   },
-  localhostIP:"https://salty-depths-03445.herokuapp.com/"
+  localhostIP: "https://salty-depths-03445.herokuapp.com/",
   //http://4697bbed4253.ngrok.io
 };
 // export const environment = {

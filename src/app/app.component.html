@@ -1,8 +1,8 @@
 <ion-app>
     <ion-menu contentId="main-content" side="start">
         <ion-header>
-            <ion-toolbar color="dark">
-                <ion-title>Dr.D.Y.Patil colleage of eng</ion-title>
+            <ion-toolbar class="toolbar-header">
+                <ion-title>DYP</ion-title>
             </ion-toolbar>
         </ion-header>
 
@@ -13,7 +13,7 @@
             <ion-list>
 
                 <ion-menu-toggle auto-hide="false" *ngFor="let page of reUPages">
-                    <ion-item [routerLink]="page.path" routerDirection="root">
+                    <ion-item (click)="redirectMenu(page.path)" routerDirection="root">
                         {{page.name}}
                     </ion-item>
                 </ion-menu-toggle>

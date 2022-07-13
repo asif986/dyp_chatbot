@@ -18,7 +18,8 @@
                 <ion-row>
                     <ion-col>
                         <div class="header-align-center">
-                            <ion-img style="width:100%;    max-width: 75%;" class="dypimg" src="assets/icon/DYPCET_Logo.png"></ion-img>
+                            <ion-img style="width:100%;    max-width: 75%;" class="dypimg"
+                                src="assets/img/app_logo.png"></ion-img>
 
                         </div>
                     </ion-col>
@@ -30,7 +31,8 @@
                             <div class="padding-buttom">
 
                                 <ion-item>
-                                    <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="name" required></ion-input>
+                                    <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="name" required>
+                                    </ion-input>
                                 </ion-item>
                             </div>
                             <!-- <div class="padding-buttom">
@@ -48,7 +50,9 @@
 
                                 <ion-item>
 
-                                    <ion-input autocorrect="on" [(ngModel)]="email" name="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Email" required="true"></ion-input>
+                                    <ion-input autocorrect="on" [(ngModel)]="email" name="username" autofocus="on"
+                                        clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Email"
+                                        required="true"></ion-input>
                                     <ion-icon name="person" slot="start" class="ion-align-self-center"></ion-icon>
                                     <!-- <ion-icon name="lock-closed"></ion-icon> -->
                                     <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
@@ -59,7 +63,9 @@
 
 
                                 <ion-item>
-                                    <ion-input autocorrect="on" name="password" #pass [(ngModel)]="password" autofocus="on" type="password" clearInput="true" clearOnEdit="true" inputmode="password" placeholder="Password" required="true"></ion-input>
+                                    <ion-input autocorrect="on" name="password" #pass [(ngModel)]="password"
+                                        autofocus="on" type="password" clearInput="true" clearOnEdit="true"
+                                        inputmode="password" placeholder="Password" required="true"></ion-input>
                                     <ion-icon name="lock-closed" slot="start" class="ion-align-self-center"></ion-icon>
                                     <!-- <ion-label color="primary" position="floating">Name</ion-label> -->
                                 </ion-item>
@@ -68,7 +74,9 @@
                             <div class="padding-buttom">
 
                                 <ion-item>
-                                    <ion-input autocorrect="on" name="confirm" #cpassword [(ngModel)]="confirm" autofocus="on" type="password" clearInput="true" clearOnEdit="true" inputmode="password" placeholder="Password again" required="true"></ion-input>
+                                    <ion-input autocorrect="on" name="confirm" #cpassword [(ngModel)]="confirm"
+                                        autofocus="on" type="password" clearInput="true" clearOnEdit="true"
+                                        inputmode="password" placeholder="Password again" required="true"></ion-input>
                                     <ion-icon name="lock-closed" slot="start" class="ion-align-self-center"></ion-icon>
                                     <!-- <ion-input name="confirm" type="password" placeholder="Password again" [(ngModel)]="confirm" required></ion-input> -->
                                 </ion-item>
@@ -96,7 +104,8 @@
 
                 <ion-row>
                     <ion-col>
-                        <ion-button (click)="register(form)" [disabled]="form.invalid|| password !== confirm" color="dark" expand="block" shape="round">
+                        <ion-button (click)="register(form)" [disabled]="form.invalid|| password !== confirm"
+                            color="dark" expand="block" shape="round">
                             Register new USer
                         </ion-button>
                         <!-- <div class="forget-txt-align">
